@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <?php
+        $var = 0;
+    ?>
 </body>
 </html>

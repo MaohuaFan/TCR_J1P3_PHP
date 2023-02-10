@@ -13,12 +13,12 @@
     <?php
         if ($_SESSION['login'] == true) {
             echo "Username: " . $_SESSION['username'] . "<br>";
-            echo'<form action="beveiligdepagina.php" method="post">';
-                echo'<input type="submit" name="break" value="Break">';
-            echo'</form>';
-            if($_POST["break"]) {
-                session_destroy();
-            }
+            #echo'<form action="beveiligdepagina.php" method="post">';
+            #    echo'<input type="submit" name="break" value="Break">';
+            #echo'</form>';
+            #if($_POST["break"]) {
+            #    session_destroy();
+            #}
         } else {
             echo "U heeft nog niet ingelogd!";
         }

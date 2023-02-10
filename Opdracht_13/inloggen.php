@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Verify</title>
+    <title>Inlog Pagina</title>
 </head>
 <body>
-    <?php
+    <form action="opdracht_9.4.php" method="post">
+        <label>Username</label>
+            <input type="text" name="username"><br>
+        <label>Password</label>
+            <input type="password" name="password"><br>
+        <input type="submit" name="inloggen" value="Inloggen">
+    </form>
+        <?php
+        /*
         try {
             $db = new PDO("mysql:host=localhost;dbname=fietsenmaker", "root", "");
             if (isset($_POST["inloggen"])) {
@@ -21,22 +29,17 @@
                     if(password_verify($password, $result["password"])) {
                         echo "Juiste gegevens";
                     } else {
-                        echo "Onjuiste gegevens! <br>";
-                        echo "Onjuist password_verify(password, result['password'])";
+                        echo "Onjuiste gegevens";
                     }
                 } else {
-                    echo "Onjuiste gegevens! <br>";
-                    echo "Onjuist %query->rowCount() == 1";
+                    echo "Onjuiste gegevens";
                 }
-                echo "<br><br>";
-                echo "Inlogveld password: $password <br>";
-                echo "Database password: ". $result["password"];
+                echo "<br>";
             }
         }   catch(PDOException $e) {
             die("Error!: " . $e->getMessage());
         }
-    ?>
-    <br><br>
-    <a href="inloggen.php">Terug naar inlog pagina</a>
+        */
+        ?>
 </body>
 </html>

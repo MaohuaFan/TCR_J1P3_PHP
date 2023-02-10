@@ -15,9 +15,6 @@
             echo "Informatie die je alleen ziet als de login gelukt is. <br>";
             echo "Username is in de session bewaard. <br>";
             echo "Username: " . $_SESSION['username'] . "<br>";
-            echo'<form action="beveiligdepagina.php" method="post">';
-                echo'<input type="submit" name="break" value="Break">';
-            echo'</form>';
         } else {
             echo "U heeft nog niet ingelogd!";
         }

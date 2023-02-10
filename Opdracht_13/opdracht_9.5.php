@@ -37,8 +37,6 @@
                         $_SESSION['login'] = true;
                         $_SESSION['username'] = $_POST['username'];
                         header('Location: beveiligdepagina.php');
-                        
-                        
                     } else {
                         echo "Onjuiste gegevens! <br>";
                         $_SESSION['login'] = false;

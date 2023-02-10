@@ -42,6 +42,6 @@
         */
         ?>
         <br><br>
-        <a href="9.4_registreren.php">Terug naar registreer pagina</a>
+        <a href="opdracht_9.4_registreren.php">Terug naar registreer pagina</a>
 </body>
 </html>

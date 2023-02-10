@@ -27,6 +27,6 @@
         }
     ?>
     <br><br><br>
-    <a href="9.4_inloggen.php">Terug naar inlog pagina</a>
+    <a href="opdracht_9.4_inloggen.php">Terug naar inlog pagina</a>
 </body>
 </html>

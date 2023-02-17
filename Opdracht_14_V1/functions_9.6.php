@@ -1,6 +1,5 @@
 <?php
 // Functie: Algemene functies tbv hergebruik
-
 function ConnectDb(){
     
     $servername = "localhost";
@@ -19,7 +18,7 @@ function ConnectDb(){
     // echo "Connected successfully 2<br>";
     return $conn;
 }
-
+/*
 function BerichtToevoegen(){
     try {
         if(isset($_POST['submit'])) {
@@ -28,10 +27,9 @@ function BerichtToevoegen(){
             echo "De nieuwe gegevens zijn toegevoed. 1";
         } else {
             echo "Er is een fout opgetreden! 1";
+        }} catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage() . "<br><br>";
         }
-    } catch(PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
-    }
 }
 function OvzBerichten(){
     try {
@@ -42,9 +40,9 @@ function OvzBerichten(){
             echo $data['naam'] . "<br>";
             echo $data['bericht'] . "<br>";
             echo $data['datumtijd'] . "<br>";
+        }} catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage() . "<br><br>";
         }
-        }   catch(PDOException $e) {
-            die("Error!: " . $e->getMessage());
-        }
-}
+    } 
+*/
 ?>

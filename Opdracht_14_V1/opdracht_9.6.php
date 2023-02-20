@@ -20,30 +20,8 @@
     <?php
         include 'functions_9.6.php';
         $conn = ConnectDb();
-        try {
-            if(isset($_POST["opslaan"]) && isset($_POST["naam"]) && isset($_POST["bericht"])){
-                $query = $conn->prepare("INSERT INTO gastenboek(naam, bericht) VALUES('".$_POST['naam']."','".$_POST['bericht']."')");
-                $query->execute();
-                echo"Bericht Toegevoegd. <br><br><br>";
-            } else {
-                echo "Er is een fout opgetreden! <br><br>";
-            }} catch(PDOException $e) {
-                echo "Connection failed: " . $e->getMessage() . "<br><br>";
-            }
-        try {
-            $query = $conn->prepare("SELECT * FROM gastenboek");
-            $query->execute();
-            $result = $query->fetchAll(PDO::FETCH_ASSOC);
-            foreach($result as &$data) {
-                echo "[" . $data['id'] . "] ";
-                echo $data['naam'] . " - ";
-                echo "[" . $data['datumtijd'] . "] ";
-                echo "<br>";
-                echo $data['bericht'] . " ";
-                echo "<br><br>";
-            }} catch(PDOException $e) {
-                echo "Connection failed: " . $e->getMessage() . "<br><br>";
-            }
+        BerichtToevoegen($conn);
+        OvzBerichten($conn);        
     ?>
     <br><br><br>
     <a href="opdracht_9.6.php">Terug naar berichten</a>

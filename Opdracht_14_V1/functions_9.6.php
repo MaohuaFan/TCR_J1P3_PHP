@@ -18,31 +18,33 @@ function ConnectDb(){
     // echo "Connected successfully 2<br>";
     return $conn;
 }
-/*
-function BerichtToevoegen(){
+
+function BerichtToevoegen($conn){
     try {
-        if(isset($_POST['submit'])) {
+        if(isset($_POST["opslaan"]) && isset($_POST["naam"]) && isset($_POST["bericht"])){
             $query = $conn->prepare("INSERT INTO gastenboek(naam, bericht) VALUES('".$_POST['naam']."','".$_POST['bericht']."')");
             $query->execute();
-            echo "De nieuwe gegevens zijn toegevoed. 1";
+            echo"Bericht Toegevoegd. <br><br><br>";
         } else {
-            echo "Er is een fout opgetreden! 1";
+            echo "Er is een fout opgetreden! <br><br>";
         }} catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage() . "<br><br>";
         }
 }
-function OvzBerichten(){
+function OvzBerichten($conn){
     try {
         $query = $conn->prepare("SELECT * FROM gastenboek");
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as &$data) {
-            echo $data['naam'] . "<br>";
-            echo $data['bericht'] . "<br>";
-            echo $data['datumtijd'] . "<br>";
+            echo "[" . $data['id'] . "] ";
+            echo $data['naam'] . " - ";
+            echo "[" . $data['datumtijd'] . "] ";
+            echo "<br>";
+            echo $data['bericht'] . " ";
+            echo "<br><br>";
         }} catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage() . "<br><br>";
         }
     } 
-*/
 ?>

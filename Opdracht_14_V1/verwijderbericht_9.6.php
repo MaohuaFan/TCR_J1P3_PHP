@@ -1,7 +1,7 @@
 <?php
     // Database gegevens includen.
-    include('connectpdo.php');
-
+    include('functions_9.6.php');
+    $conn = ConnectDb();
     // ID ophalen
     if(isset($_GET['id'])){
         $id = $_GET['id'];

@@ -24,7 +24,5 @@
         OvzBerichten($conn);   
         #VerwijderBericht($conn);     
     ?>
-    <br><br><br>
-    <a href="opdracht_9.6.php">Terug naar berichten</a>
 </body>
 </html>

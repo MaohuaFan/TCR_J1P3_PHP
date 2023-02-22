@@ -21,7 +21,8 @@
         include 'functions_9.6.php';
         $conn = ConnectDb();
         BerichtToevoegen($conn);
-        OvzBerichten($conn);        
+        OvzBerichten($conn);   
+        #VerwijderBericht($conn);     
     ?>
     <br><br><br>
     <a href="opdracht_9.6.php">Terug naar berichten</a>

@@ -29,7 +29,7 @@ function BerichtToevoegen($conn){
             echo "Er is een fout opgetreden! <br><br>";
         }} catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage() . "<br><br>";
-        }
+    }
 }
 function OvzBerichten($conn){
     try {
@@ -37,14 +37,35 @@ function OvzBerichten($conn){
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         foreach($result as &$data) {
-            echo "[" . $data['id'] . "] ";
+            #echo "[" . $data['id'] . "] ";
             echo $data['naam'] . " - ";
             echo "[" . $data['datumtijd'] . "] ";
             echo "<br>";
             echo $data['bericht'] . " ";
+            #echo "<a href='opdracht_9.6.php?id=". $data['id']. "'>Verwijderen</a>";
             echo "<br><br>";
         }} catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage() . "<br><br>";
+    }
+}
+function VerwijderBericht($conn) {
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        echo"$id";
+        try {
+            // SQL to delete a record
+            $quary = $conn->prepare("DELETE FROM gastenboek WHERE id='$id'");
+            #$sql = "DELETE FROM gastenboek WHERE id='$id'";
+
+            $conn->execute($quary);
+            // Use exec() because no result are returned
+            #$conn->exec($sql);
+            echo "Records deleted successfully";
+            // Terug naar homepage
+            header('Location: opdracht_9.6.php');
+        } catch(PDOException $e) {
+            //echo "$sql . "<br>" . $e->getMessage();
         }
-    } 
+    }
+}
 ?>

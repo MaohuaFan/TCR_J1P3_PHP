@@ -75,4 +75,25 @@ function CRUD_Table(){
     echo "<td> <a href=''>Wijzigen</a> </td>";
     echo "<td> <a href=''>Verwijderen</a> </td>";
 }
+
+function CRUD_Bier_Toevoegen(){
+    $conn = ConnectDb();
+    $biercode = 1620;
+    $naam = $_POST['naam'];
+    $soort = $_POST['soort'];
+    $stijl = $_POST['stijl'];
+    $alcohol = $_POST['alcohol'];
+    $brouwcode = 1354;
+    if(isset($_POST['submit'])){
+        #$query = $conn->prepare("INSERT INTO bier(bierocde, naam, soort, stijl, alcohol, brouwcode) VALUES($biercode,$naam,$soort,$stijl,$alcohol, $brouwcode)");
+        #$query->execute();
+        echo"Bier is Toegevoegd. <br><br><br>";
+        echo "Hello World!";
+    } else {
+        echo "<br>";
+        echo "Er is een fout opgetreden! <br>";
+        echo $biercode ."<br>", $naam ."<br>", $soort ."<br>", $stijl ."<br>", $alcohol ."<br>", $brouwcode ."<br>";
+    }
+    $conn = null;
+}
 ?>

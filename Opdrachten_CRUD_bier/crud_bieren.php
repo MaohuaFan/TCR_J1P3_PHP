@@ -2,18 +2,16 @@
 <h1>CRUD Bier</h1>
 <a href="CRUD_Bier_Toevoegen.php">Toevoegen nieuwe bier</a><br><br>
 <?php
-// Functie: Programma overzicht bieren
-// Auteur: 
+// functie: Programma CRUD bieren
+// auteur: Wigmans  
 
 // Initiallisatie
 include 'functions.php';
 
 // Main
 
-// Print bieren opdracht 9
-OvzBieren();
+// Print bieren opdracht 12
+CrudBieren();
 
 
-// Print brouwers opdracht 10
-#OvzBrouwers();
 ?>

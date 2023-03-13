@@ -109,13 +109,21 @@ function CRUD_Bier_Toevoegen(){
     $conn = null;
 }
 
-
+/*
 function placeholder(){
     $row = "placeholder";
     // Button
-    $table .= "<td>".            "<form method='post' action='update_bier.php?biercode=$row[biercode]' >                          <button name='wzg'>Wzg</button>              </form>" . "</td>";
+    $table .= "<td>". "<form method='post' action='update_bier.php?biercode=$row[biercode]' > 
+    <button name='wzg'>Wzg</button>
+    </form>" . "</td>";
 
     // href
     $table .= '<td><a href="delete_bier.php?biercode='.$row["biercode"].'">verwijder</a></td>';
 }
+*/
+
+//Create
+//Read
+//Update
+//Delete
 ?>

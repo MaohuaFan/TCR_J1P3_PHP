@@ -154,7 +154,7 @@ function PrintCrudBier($result){
         
         // Wijzig knopje
         $table .= "<td>". 
-            "<form method='post' action='update_bier.php?biercode=$row[biercode]' >       
+            "<form method='post' action='update_bier.php?biercode=$row[biercode]&parameter1=testje' >       
                     <button name='wzg'>Wzg</button>	 
             </form>" . "</td>";
 

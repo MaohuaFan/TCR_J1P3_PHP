@@ -1,6 +1,6 @@
 <?php
-// auteur: Wigmans
-// functie: algemene functies tbv hergebruik
+// Auteur: Wigmans
+// Functie: Algemene functies tbv hergebruik
  function ConnectDb(){
     $servername = "localhost";
     $username = "root";
@@ -9,7 +9,7 @@
    
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
+        // Set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         echo "Connected successfully";
@@ -28,7 +28,7 @@
     $conn = ConnectDb();
 
     // Select data uit de opgegeven table methode query
-    // query: is een prepare en execute in 1 zonder placeholders
+    // Query: is een prepare en execute in 1 zonder placeholders
     // $result = $conn->query("SELECT * FROM $table")->fetchAll();
 
     // Select data uit de opgegeven table methode prepare
@@ -44,7 +44,7 @@
     $conn = ConnectDb();
 
     // Select data uit de opgegeven table methode query
-    // query: is een prepare en execute in 1 zonder placeholders
+    // Query: is een prepare en execute in 1 zonder placeholders
     // $result = $conn->query("SELECT * FROM $table")->fetchAll();
 
     // Select data uit de opgegeven table methode prepare
@@ -61,7 +61,7 @@
     // Haal alle bier record uit de tabel 
     $result = GetData("bier");
     
-    //print table
+    // Print table
     PrintTable($result);
     //PrintTableTest($result);
     
@@ -71,7 +71,7 @@
     // Haal alle bier record uit de tabel 
     $result = GetData("brouwer");
     
-    //print table
+    // Print table
     PrintTable($result);
      
  }
@@ -79,7 +79,7 @@
  function PrintTableTest($result){
     // Zet de hele table in een variable en print hem 1 keer 
     $table = "<table border = 1px>";
-    // print elke rij
+    // Print elke rij
     foreach ($result as $row) {
         echo "<br> rij:";
         
@@ -97,18 +97,18 @@ function PrintTable($result){
 
     // Print header table
 
-    // haal de kolommen uit de eerste [0] van het array $result mbv array_keys
+    // Haal de kolommen uit de eerste [0] van het array $result mbv array_keys
     $headers = array_keys($result[0]);
     $table .= "<tr>";
     foreach($headers as $header){
         $table .= "<th bgcolor=gray>" . $header . "</th>";   
     }
 
-    // print elke rij
+    // Print elke rij
     foreach ($result as $row) {
         
         $table .= "<tr>";
-        // print elke kolom
+        // Print elke kolom
         foreach ($row as $cell) {
             $table .= "<td>" . $cell . "</td>";
         }
@@ -125,7 +125,7 @@ function CrudBieren(){
     // Haal alle bier record uit de tabel 
     $result = GetData("bier");
     
-    //print table
+    // Print table
     PrintCrudBier($result);
     
  }
@@ -135,22 +135,22 @@ function PrintCrudBier($result){
 
     // Print header table
 
-    // haal de kolommen uit de eerste [0] van het array $result mbv array_keys
+    // Haal de kolommen uit de eerste [0] van het array $result mbv array_keys
     $headers = array_keys($result[0]);
     $table .= "<tr>";
     foreach($headers as $header){
         $table .= "<th bgcolor=gray>" . $header . "</th>";   
-    }
+    } /*Edit*/ $table .= "<th bgcolor=gray> Wzg </th>"; $table .= "<th bgcolor=gray> Verwijder </th>";  
 
-    // print elke rij
+    // Print elke rij
     foreach ($result as $row) {
         
         $table .= "<tr>";
-        // print elke kolom
+        // Print elke kolom
         foreach ($row as $cell) {
             $table .= "<td>" . $cell . "</td>";
         }
-        $table .= "</tr>";
+        #$table .= "</tr>";
         
         // Wijzig knopje
         $table .= "<td>". 
@@ -159,7 +159,7 @@ function PrintCrudBier($result){
             </form>" . "</td>";
 
         // Delete via linkje href
-        $table .= '<td><a href="delete_bier.php?biercode='.$row["biercode"].'">verwijder</a></td>';
+        $table .= '<td><a href="delete_bier.php?biercode='.$row["biercode"].'">Verwijder</a></td>';
         
         $table .= "</tr>";
     }

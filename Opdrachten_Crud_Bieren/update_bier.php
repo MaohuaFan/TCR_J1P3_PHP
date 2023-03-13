@@ -14,7 +14,7 @@ echo "Data uit het vorige formulier: <br>";
 echo "Biercode: " . $_GET['biercode'];
 echo "<br><br>";
 
-#echo "debug var_dump informatie <br>";
+#echo "debug information var_dump <br>";
 #var_dump($_POST);
 echo "<br>";
 #var_dump($_GET);

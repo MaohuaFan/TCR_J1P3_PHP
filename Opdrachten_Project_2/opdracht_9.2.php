@@ -8,13 +8,10 @@
 </head>
 <body>
     <?php
-    //
-    //
-        include 'functions_9.7.php';
-    //
-        Poll();
-        Optie();
-
+        include 'functions.php';
+        OvzTableFietsen();
+        echo "<br><br>";
+        OvzTableDetails();
     ?>
 </body>
 </html>

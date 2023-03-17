@@ -44,5 +44,10 @@ echo "<br>";
     <input type="submit" name="submit" value="Wijzigen" id="submit">
 </form>    
     <a href="crud_bieren.php">Terug naar crud bieren</a>
+    <?php
+        if(!empty($_POST['submit'])){
+            echo "<br><br> test";
+        }
+    ?>
 </body>
 </html>

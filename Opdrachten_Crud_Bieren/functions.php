@@ -12,7 +12,8 @@
         // Set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        echo "Connected successfully";
+        #echo "Connected successfully";
+        echo "Create Read Update Delete";
         return $conn;
     } 
     catch(PDOException $e) {
@@ -170,8 +171,28 @@ function PrintCrudBier($result){
 
 
 function UpdateBier($row){
-    echo "Update row<br>";
-    var_dump($row);
+    echo "<br> Update row <br>";
+    #var_dump($row);
+    	
+    // Connect database
+    $conn = ConnectDb();
+
+
+    // Update data uit de opgegeven table methode query
+    // query: is een prepare en execute in 1 zonder placeholders
+
+
+    // Update data uit de opgegeven table methode prepare
+    $sql = "UPDATE `bier` 
+            SET 
+                `naam` = '$row[biernaam]', 
+                `soort` = '$row[soort]', 
+                `stijl` = '$row[stijl]', 
+                `alcohol` = '$row[alcohol]' 
+            WHERE `bier`.`biercode` = $row[biercode]";
+    #$conn->exec($sql);
+    $query = $conn->prepare($sql);
+    $query->execute();
 }
 
 function DeleteBier($biercode){

@@ -8,21 +8,38 @@ require_once('functions.php');
 
 // Main
 
-// Print ---
-echo "<h1>Update Bier</h1>";
 
-echo "Data uit het vorige formulier: <br>";
-$row = GetBier($_GET['biercode']);
-echo "<br>";
+// Print ---
+echo "<h1> Update Bier </h1>";
+
+// Test of er op de wijzig-knop is gedrukt
+if(isset($_POST) && isset($_POST['submit'])){
+    UpdateBier($_POST);
+    //header("location:update_bier.php?$_POST[NR]"); 
+}
+
+if(isset($_GET['biercode'])){
+    echo "<br> Data uit het vorige formulier: <br>";
+    // Haal alle info van de betreffende biercode $_GET['biercode']
+    $biercode = $_GET['biercode'];
+    $row = GetBier($biercode);
+}
+
+
+    #echo "Data uit het vorige formulier: <br>"; ^^^
+    #$row = GetBier($_GET['biercode']); ^^^
+    #echo "<br>"; ^^^
+
 #var_dump($row);
 #echo "Biercode: " . $_GET['biercode'] . "<br>";
 #echo "Debug information var_dump <br>";
-#var_dump($_POST);
-echo "<br>";
-#var_dump($_GET);
-#echo "<br>";
-#echo "Create Read Update Delete";
-// <!php echo $row['naam']!>" -> <!= $row['naam']!> ////  !-teken staat voor de ? /// ! => ? 
+    #var_dump($_POST);
+    #echo "<br>";
+    #var_dump($_GET);
+    #echo "<br>";
+
+    // <!php echo $row['naam']!>" -> <!= $row['naam']!> ////  !-teken staat voor de ? /// ! => ? 
+
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +61,6 @@ echo "<br>";
     <input type="submit" name="submit" value="Wijzigen" id="submit">
 </form>    
     <a href="crud_bieren.php">Terug naar crud bieren</a>
-    <?php
-        if(!empty($_POST['submit'])){
-            echo "<br><br> test";
-        }
-    ?>
+
 </body>
 </html>

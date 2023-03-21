@@ -171,32 +171,35 @@ function PrintCrudBier($result){
 
 
 function UpdateBier($row){
-    echo "<br> Update row <br>";
+    echo '<br> Update row <br>';
     #var_dump($row);
-    	
-    // Connect database
-    $conn = ConnectDb();
-
-
-    // Update data uit de opgegeven table methode query
-    // query: is een prepare en execute in 1 zonder placeholders
-
-
-    // Update data uit de opgegeven table methode prepare
-    $sql = "UPDATE `bier` 
-            SET 
-                `naam` = '$row[biernaam]', 
-                `soort` = '$row[soort]', 
-                `stijl` = '$row[stijl]', 
-                `alcohol` = '$row[alcohol]' 
-            WHERE `bier`.`biercode` = $row[biercode]";
-    #$conn->exec($sql);
-    $query = $conn->prepare($sql);
-    $query->execute();
+    try {
+        // Connect database
+        $conn = ConnectDb();
+        
+        // Update data uit de opgegeven table methode query
+        // query: is een prepare en execute in 1 zonder placeholders
+        
+        
+        // Update data uit de opgegeven table methode prepare
+        $sql = "UPDATE `bier` 
+                SET 
+                    `naam` = '$row[biernaam]', 
+                    `soort` = '$row[soort]', 
+                    `stijl` = '$row[stijl]', 
+                    `alcohol` = '$row[alcohol]' 
+                WHERE `bier`.`biercode` = $row[biercode]";
+        #$conn->exec($sql);
+        $query = $conn->prepare($sql);
+        $query->execute();
+    } 
+    catch(PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
 }
 
 function DeleteBier($biercode){
-    echo "Delete row<br>";
+    echo 'Delete row <br>';
     var_dump($biercode);
 }
 

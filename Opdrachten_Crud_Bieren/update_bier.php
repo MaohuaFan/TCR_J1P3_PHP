@@ -15,7 +15,10 @@ echo "<h1> Update Bier </h1>";
 // Test of er op de wijzig-knop is gedrukt
 if(isset($_POST) && isset($_POST['submit'])){
     UpdateBier($_POST);
-    //header("location:update_bier.php?$_POST[NR]"); 
+
+    header("location:crud_bieren.php"); 
+
+    //header("location:update.php?$_POST[NR]"); 
 }
 
 if(isset($_GET['biercode'])){

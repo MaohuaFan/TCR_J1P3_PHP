@@ -8,7 +8,7 @@ $DBname = "php opdrachten";
 $conn = mysqli_connect($Sname, $DBuser, $DBPwd, $DBname);
 
 if(!$conn){
-    die("Connection error". mysqli_connect_error());
+    echo "Connection error". mysqli_connect_error();
 }
 
 function getBrowserName($user_agent) {
@@ -101,14 +101,4 @@ function countSql($conn, $style){
     <td>Linux</td>
     <td><?php countSql($conn, "Linux");?></td>
   </tr>
-</table>
-
-<table border="1" width="250">
-    <tr>
-    <th>Leerling</th>
-    <th>Cijfer</th>
-  </tr>
-  <?php
-    cijferSytm($conn);
-  ?>
 </table>

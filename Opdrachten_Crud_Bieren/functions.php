@@ -13,7 +13,7 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         #echo "Connected successfully";
-        echo "Create Read Update Delete";
+        echo "Create Read Update Delete <br><br>";
         return $conn;
     } 
     catch(PDOException $e) {
@@ -171,8 +171,9 @@ function PrintCrudBier($result){
 
 
 function UpdateBier($row){
-    echo '<br> Update row <br>';
-    #var_dump($row);
+    echo '<h3> Update row </h3>';
+    var_dump($row);
+    echo '<br>';
     try {
         // Connect database
         $conn = ConnectDb();
@@ -188,6 +189,7 @@ function UpdateBier($row){
                     `soort` = '$row[soort]', 
                     `stijl` = '$row[stijl]', 
                     `alcohol` = '$row[alcohol]' 
+                    /*`brouwcode` = '$row[brouwcode]'*/
                 WHERE `bier`.`biercode` = $row[biercode]";
         #$conn->exec($sql);
         $query = $conn->prepare($sql);

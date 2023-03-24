@@ -33,7 +33,7 @@
                 echo "Database password: ". $result["password"];
             }
         }   catch(PDOException $e) {
-            die("Error!: " . $e->getMessage());
+            echo ("Error!: " . $e->getMessage());
         }
     ?>
     <br><br>

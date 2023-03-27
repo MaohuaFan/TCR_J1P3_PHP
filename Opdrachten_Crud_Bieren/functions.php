@@ -49,7 +49,8 @@
     // $result = $conn->query("SELECT * FROM $table")->fetchAll();
 
     // Select data uit de opgegeven table methode prepare
-    $query = $conn->prepare("SELECT * FROM bier WHERE biercode = $biercode");
+    $query = $conn->prepare("SELECT * FROM bier WHERE biercode = :biercode");
+    $query->bindParam(':biercode', $biercode);
     $query->execute();
     $result = $query->fetch();
 

@@ -13,7 +13,7 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         #echo "Connected successfully";
-        echo "Create Read Update Delete <br><br>";
+        #echo "Create Read Update Delete <br><br>";
         return $conn;
     } 
     catch(PDOException $e) {
@@ -33,7 +33,7 @@
     // $result = $conn->query("SELECT * FROM $table")->fetchAll();
 
     // Select data uit de opgegeven table methode prepare
-    $query = $conn->prepare("SELECT * FROM $table");
+    $query = $conn->prepare("SELECT * FROM $table /*ORDER BY `bier`.`biercode` DESC*/");
     $query->execute();
     $result = $query->fetchAll();
 
@@ -203,6 +203,22 @@ function UpdateBier($row){
 function DeleteBier($biercode){
     echo 'Delete row <br>';
     var_dump($biercode);
+    try {
+        // Connect database
+        $conn = ConnectDb();
+        
+        // Update data uit de opgegeven table methode query
+        // Query: is een prepare en execute in 1 zonder placeholders
+        
+        
+        $sql = "DELETE FROM bier WHERE `bier`.`biercode` = $biercode";
+        #$conn->exec($sql);
+        $query = $conn->prepare($sql);
+        $query->execute();
+    } 
+    catch(PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
 }
 
 ?>

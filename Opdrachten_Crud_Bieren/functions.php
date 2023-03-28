@@ -217,9 +217,10 @@ function DeleteBier($biercode){
         // Query: is een prepare en execute in 1 zonder placeholders
         
         
-        $sql = "DELETE FROM bier WHERE `bier`.`biercode` = $biercode";
+        $sql = "DELETE FROM bier WHERE `bier`.`biercode` = :biercode";
         #$conn->exec($sql);
         $query = $conn->prepare($sql);
+        $query->bindParam(':biercode', $biercode);
         $query->execute();
     } 
     catch(PDOException $e) {

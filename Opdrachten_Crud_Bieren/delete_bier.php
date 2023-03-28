@@ -13,7 +13,7 @@ require_once('functions.php');
 echo '<h1> Verwijder Bier </h1>';
 
 if(isset($_GET['biercode'])){
-    #echo '<br> Data uit het vorige formulier: <br>';
+    echo '<br> Data uit het vorige formulier: <br>';
     // Haal alle info van de betreffende biercode $_GET['biercode']
     $biercode = $_GET['biercode'];
     $row = GetBier($biercode);

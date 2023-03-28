@@ -33,9 +33,9 @@ if(isset($_GET['biercode'])){
     #$row = GetBier($_GET['biercode']); ^^^
     #echo "<br>"; ^^^
 
-#var_dump($row);
-#echo "Biercode: " . $_GET['biercode'] . "<br>";
-#echo "Debug information var_dump <br>";
+    #var_dump($row);
+    #echo "Biercode: " . $_GET['biercode'] . "<br>";
+    #echo "Debug information var_dump <br>";
     #var_dump($_POST);
     #echo "<br>";
     #var_dump($_GET);
@@ -43,7 +43,7 @@ if(isset($_GET['biercode'])){
 
     // <!php echo $row['naam']!>" -> <!= $row['naam']!> ////  !-teken staat voor de ? /// ! => ? 
 
-
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -161,8 +161,13 @@ function PrintCrudBier($result){
             </form>" . "</td>";
 
         // Delete via linkje href
-        $table .= '<td><a href="delete_bier.php?biercode='.$row["biercode"].'">Verwijder</a></td>';
+        #$table .= '<td><a href="delete_bier.php?biercode='.$row["biercode"].'">Verwijder</a></td>';
         
+        $table .= "<td>". 
+            "<form method='post' action='delete_bier.php?biercode=$row[biercode]&parameter1=testje' >       
+                    <button name='verwijder'>Verwijder</button>	 
+            </form>" . "</td>";
+
         $table .= "</tr>";
     }
     $table.= "</table>";

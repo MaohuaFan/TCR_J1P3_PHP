@@ -142,7 +142,7 @@ function PrintCrudBier($result){
     $table .= "<tr>";
     foreach($headers as $header){
         $table .= "<th bgcolor=gray>" . $header . "</th>";   
-    } /*Edit*/ $table .= "<th bgcolor=gray> Wzg </th>"; $table .= "<th bgcolor=gray> Verwijder </th>";  
+    } /*Edit*/ $table .= "<th bgcolor=gray> Weizig </th>"; $table .= "<th bgcolor=gray> Verwijder </th>";  
 
     // Print elke rij
     foreach ($result as $row) {
@@ -157,7 +157,7 @@ function PrintCrudBier($result){
         // Wijzig knopje
         $table .= "<td>". 
             "<form method='post' action='update_bier.php?biercode=$row[biercode]&parameter1=testje' >       
-                    <button name='wzg'>Wzg</button>	 
+                    <button name='weizig'>Weizig</button>	 
             </form>" . "</td>";
 
         // Delete via linkje href

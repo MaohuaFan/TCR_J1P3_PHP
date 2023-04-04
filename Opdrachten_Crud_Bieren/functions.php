@@ -228,4 +228,10 @@ function DeleteBier($biercode){
     }
 }
 
+function OptionsBrouwcode(){
+    $result = GetData('bier');
+    foreach($result as &$data){
+        echo'<option value="'.$data['brouwcode'].'">'.$data['brouwcode'].'</option>';            
+    }
+}
 ?>

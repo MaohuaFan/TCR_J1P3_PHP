@@ -60,9 +60,14 @@ if(isset($_GET['biercode'])){
         <label for="2">Soort: </label><input type="text" name="soort" value="<?=$row['soort']?>" id="2" required><br>
         <label for="3">Stijl: </label><input type="text" name="stijl" value="<?=$row['stijl']?>" id="3" required><br>
         <label for="4">Alcohol %: </label><input type="number" name="alcohol" value="<?=$row['alcohol']?>" id="4" required><br>
-        <!--<label for="5">Brouwcode: </label>--><input type="number" name="brouwcode" value="<?=$row['brouwcode']?>" id="5" hidden required><br>
+        <label for="5">Brouwcode: </label>
+        <select name="brouwcode" id="5">
+            <?php
+                OptionsBrouwcode();
+            ?>
+        </select><br>
         <input type="submit" name="submit" value="Wijzigen" id="submit">
-</form>    
+</form>
     <a href="crud_bieren.php">Terug naar crud bieren</a>
     <?php
     } else {

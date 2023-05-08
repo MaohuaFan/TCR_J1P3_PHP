@@ -24,9 +24,12 @@
 
  
  
- function GetData($table){
+ function GetData($table, $extender){
     // Connect database
     $conn = ConnectDb();
+    if(empty($extender)){
+        $extender = "";
+    }
 
     // Select data uit de opgegeven table methode query
     // Query: is een prepare en execute in 1 zonder placeholders
@@ -61,7 +64,7 @@
  function OvzBieren(){
 
     // Haal alle bier record uit de tabel 
-    $result = GetData("bier");
+    $result = GetData("bier", "");
     
     // Print table
     PrintTable($result);
@@ -71,7 +74,7 @@
 
  function OvzBrouwers(){
     // Haal alle bier record uit de tabel 
-    $result = GetData("brouwer");
+    $result = GetData("brouwer", "");
     
     // Print table
     PrintTable($result);
@@ -125,7 +128,7 @@ function PrintTable($result){
 function CrudBieren(){
 
     // Haal alle bier record uit de tabel 
-    $result = GetData("bier");
+    $result = GetData("bier", "");
     
     // Print table
     PrintCrudBier($result);
@@ -229,7 +232,14 @@ function DeleteBier($biercode){
 }
 
 function OptionsBrouwcode(){
-    $result = GetData('bier');
+    $table = "bier";
+
+    $conn = ConnectDb();
+    
+    $query = $conn->prepare("SELECT DISTINCT * FROM $table");
+    $query->execute();
+    $result = $query->fetchAll();
+    
     foreach($result as &$data){
         echo'<option value="'.$data['brouwcode'].'">'.$data['brouwcode'].'</option>';            
     }

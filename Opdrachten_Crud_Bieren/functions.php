@@ -246,15 +246,15 @@ function DeleteBier($biercode){
 }
 */
 
-function DropDown($label, $data){
-    $text = "<label for=$label>Choose a $label:</label>
+function dropDown($label, $data){
+    $text = "<label for='$label'>Choose a $label:</label>
 
-    <select name='$label' id='label'>";
+    <select name='$label' id='$label'>";
     foreach($data as $row){
         $text .="<option value='$row[brouwcode]'>$row[naam]</option>";
     }
 
-    $text .="</select>";
+    $text .= "</select>";
     echo "$text";
 }
 ?>

@@ -24,8 +24,8 @@ if(isset($_POST) && isset($_POST['submit'])){
 if(isset($_GET['biercode'])){
     echo '<br> Data uit het vorige formulier: <br>';
     // Haal alle info van de betreffende biercode $_GET['biercode']
-    $biercode = $_GET['biercode'];
-    $row = GetBier($biercode);
+     $biercode = $_GET['biercode'];
+     $row = GetBier($biercode);
 
 
 

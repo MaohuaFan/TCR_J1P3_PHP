@@ -231,7 +231,7 @@ function DeleteBier($biercode){
     }
 }
 
-function OptionsBrouwcode(){
+/*function OptionsBrouwcode(){
     $table = "bier";
 
     $conn = ConnectDb();
@@ -243,5 +243,18 @@ function OptionsBrouwcode(){
     foreach($result as &$data){
         echo'<option value="'.$data['brouwcode'].'">'.$data['brouwcode'].'</option>';            
     }
+}
+*/
+
+function DropDown($label, $data){
+    $text = "<label for=$label>Choose a $label:</label>
+
+    <select name='$label' id='label'>";
+    foreach($data as $row){
+        $text .="<option value='$row[brouwcode]'>$row[naam]</option>";
+    }
+
+    $text .="</select>";
+    echo "$text";
 }
 ?>
